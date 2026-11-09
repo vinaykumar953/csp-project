@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A student project website spreading awareness about digital transformation and smart farming in rural communities.">
+<title>SmartFarm | Digital Transformation & Smart Farming</title>
+<style>
+:root{--green:#176b3a;--dark:#103d28;--lime:#b8df69;--cream:#f5f8ed;--text:#26352b;--muted:#647267;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--text);line-height:1.65}
+a{color:inherit}
+header{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 12px #00000012}
+nav{max-width:1160px;margin:auto;padding:14px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:23px;color:var(--green);text-decoration:none}.logo span{color:#92bd36}
+nav ul{display:flex;gap:20px;list-style:none}nav li a{text-decoration:none;font-size:14px;font-weight:700}nav li a:hover{color:var(--green)}
+.menu{display:none;border:0;background:none;font-size:26px;cursor:pointer}
+.hero{min-height:570px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,#082a17eF,#082a1760),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85') center/cover}
+.wrap{width:min(1160px,100%);margin:auto;padding:0 22px}
+.hero-content{padding:85px 0;max-width:760px}.tag{display:inline-block;padding:7px 14px;border-radius:30px;background:#ffffff20;color:#e1f4b6;font-size:13px;margin-bottom:18px}
+h1{font-size:clamp(38px,6vw,64px);line-height:1.12;margin-bottom:20px}h1 span{color:var(--lime)}
+.hero p{max-width:650px;color:#eaf1e8;font-size:17px;margin-bottom:27px}
+.btn{display:inline-block;border:0;border-radius:7px;padding:12px 21px;background:var(--lime);color:#17351e;text-decoration:none;font-weight:700;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);background:#fff}.outline{background:transparent;border:2px solid white;color:white;margin-left:8px}
+section{padding:72px 0;scroll-margin-top:72px}.heading{text-align:center;margin:0 auto 40px;max-width:720px}.heading h2{font-size:34px;color:var(--dark);margin-bottom:8px}.heading p{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+.photo{width:100%;height:350px;object-fit:cover;border-radius:14px}.about h3{font-size:26px;color:var(--green);margin-bottom:12px}.about p{margin-bottom:13px}
+.stats{background:var(--dark);color:white;padding:38px 0}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}.stat strong{display:block;color:var(--lime);font-size:32px}.stat span{color:#e0e9df}
+.white{background:#fff}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;padding:25px;border-radius:12px;box-shadow:0 5px 22px #0000000b;border-bottom:4px solid transparent;transition:.2s}
+.card:hover{transform:translateY(-5px);border-color:var(--lime)}.icon{font-size:36px;margin-bottom:9px}.card h3,.tech h3{color:var(--green);margin-bottom:7px}.card p,.tech p{font-size:14px;color:var(--muted)}
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.tech{display:flex;gap:17px;background:white;padding:22px;border-radius:12px}.tech .icon{flex-shrink:0}
+.benefits{background:linear-gradient(120deg,#174e30,#267b44);color:#fff}.benefits .heading h2{color:#fff}.benefits .heading p{color:#e0eee1}
+.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.benefit{padding:23px;border:1px solid #ffffff30;background:#ffffff12;border-radius:12px}.benefit h3{color:#d0ee9a;margin-bottom:7px}.benefit p{font-size:14px;color:#e6eee6}
+.steps{max-width:800px;margin:auto}.step{display:flex;gap:18px;align-items:center;background:#fff;border-radius:12px;padding:19px;margin-bottom:15px}.number{width:44px;height:44px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-weight:bold}.step h3{color:var(--green)}.step p{font-size:14px;color:var(--muted)}
+.scheme-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.scheme{background:#fff;padding:22px;border-radius:10px}.scheme h3{color:var(--green)}.scheme p{font-size:14px;margin:7px 0 12px}.scheme a{color:var(--green);font-weight:bold;font-size:14px}
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.tip{overflow:hidden;background:#fff;border-radius:12px;box-shadow:0 4px 15px #0000000b}.tip img{width:100%;height:175px;object-fit:cover}.tip div{padding:18px}.tip h3{color:var(--green);margin-bottom:6px}.tip p{font-size:14px;color:var(--muted)}
+.quiz-box{max-width:760px;margin:auto;padding:28px;background:#fff;border-radius:14px;box-shadow:0 5px 20px #00000010}.question{padding:15px 0;border-bottom:1px solid #e8eee7}.question h3{font-size:16px;margin-bottom:8px}.question label{display:block;padding:4px 0;cursor:pointer}.question input{margin-right:8px}#quizResult{font-weight:bold;color:var(--green);margin-top:16px}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}.contact-info,.contact-form{padding:27px;border-radius:13px}.contact-info{background:var(--dark);color:#fff}.contact-info h3{color:var(--lime);margin-bottom:12px}.contact-info p{margin:12px 0}.contact-form{background:#fff;box-shadow:0 5px 20px #0000000b}.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:12px;border:1px solid #dce4dc;border-radius:6px;margin-bottom:13px;font:inherit}.contact-form textarea{min-height:110px;resize:vertical}#formResult{color:var(--green);font-weight:bold;margin-top:10px}
+footer{background:#0b2e1b;color:#fff;text-align:center;padding:30px 18px}footer p{color:#cfddcf;font-size:14px}.footer-links{margin:12px}.footer-links a{color:var(--lime);text-decoration:none;margin:0 8px;font-size:14px}
+@media(max-width:850px){.menu{display:block}nav ul{display:none;position:absolute;top:60px;left:0;width:100%;background:#fff;padding:20px 25px;flex-direction:column;box-shadow:0 5px 10px #0002}nav ul.show{display:flex}.grid2,.contact-grid{grid-template-columns:1fr}.cards,.benefit-grid,.tips-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){section{padding:54px 0}.hero{min-height:530px}.hero-content{padding:65px 0}.hero h1{font-size:39px}.cards,.benefit-grid,.tips-grid,.tech-grid,.scheme-grid,.stats-grid{grid-template-columns:1fr}.outline{margin:12px 0 0}.photo{height:260px}.quiz-box{padding:18px}.step{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header><nav>
+<a class="logo" href="#home">🌱 Smart<span>Farm</span></a>
+<button class="menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+<ul id="navLinks">
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#technology">Technology</a></li><li><a href="#benefits">Benefits</a></li><li><a href="#schemes">Resources</a></li><li><a href="#quiz">Quiz</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap"><div class="hero-content">
+<span class="tag">🌾 Technology for a better farming future</span>
+<h1>Digital Transformation & <span>Smart Farming</span> Awareness</h1>
+<p>Empowering rural communities with digital knowledge, modern agricultural technologies and sustainable farming practices for a better tomorrow.</p>
+<a class="btn" href="#about">Explore the Project →</a><a class="btn outline" href="#technology">Discover Technology</a>
+</div></div></section>
+
+<section id="about"><div class="wrap">
+<div class="heading"><h2>About Our Project</h2><p>Bridging the gap between traditional agriculture and modern digital technology.</p></div>
+<div class="grid2"><img class="photo" src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=1000&q=85" alt="Green farmland">
+<div class="about"><h3>Transforming Agriculture Through Technology</h3>
+<p>Agriculture is an important part of rural life and the economy. However, many rural farmers face challenges such as limited access to information, unpredictable weather, water scarcity and traditional farming methods.</p>
+<p>Digital transformation introduces modern technologies that can help farmers make informed decisions, improve productivity, manage resources and adopt sustainable agricultural practices.</p>
+<p><strong>Our aim:</strong> To create awareness about smart farming and make useful digital agricultural knowledge accessible to rural communities.</p>
+<a class="btn" href="#benefits">Know the Benefits</a></div></div></div></section>
+
+<div class="stats"><div class="wrap stats-grid">
+<div class="stat"><strong>01</strong><span>Learn digital skills</span></div><div class="stat"><strong>02</strong><span>Explore smart tools</span></div><div class="stat"><strong>03</strong><span>Farm sustainably</span></div>
+</div></div>
+
+<section class="white" id="technology"><div class="wrap">
+<div class="heading"><h2>Smart Farming Technologies</h2><p>Discover tools that help farmers use information, water, energy and land more efficiently.</p></div>
+<div class="cards">
+<article class="card"><div class="icon">📱</div><h3>Mobile Farming Apps</h3><p>Apps can provide weather updates, crop information, market prices and farming guidance in accessible formats.</p></article>
+<article class="card"><div class="icon">💧</div><h3>Smart Irrigation</h3><p>Soil-moisture sensors and automated irrigation systems can help farmers decide when crops need water.</p></article>
+<article class="card"><div class="icon">🛰️</div><h3>Satellite Monitoring</h3><p>Satellite images can help observe crop growth, field conditions and changes across farmland.</p></article>
+<article class="card"><div class="icon">🌦️</div><h3>Weather Forecasting</h3><p>Local weather information helps farmers plan sowing, irrigation, harvesting and other farm activities.</p></article>
+<article class="card"><div class="icon">🚜</div><h3>Modern Farm Machinery</h3><p>Suitable machinery can reduce repetitive work and improve the efficiency of selected farming operations.</p></article>
+<article class="card"><div class="icon">🤖</div><h3>Artificial Intelligence</h3><p>AI-based tools can support crop monitoring and help identify possible pest or plant-health concerns.</p></article>
+</div></div></section>
+
+<section><div class="wrap"><div class="heading"><h2>Digital Tools in Agriculture</h2><p>Technology can support farmers at different stages of the farming process.</p></div>
+<div class="tech-grid">
+<div class="tech"><div class="icon">📊</div><div><h3>Digital Market Information</h3><p>Check market information and compare prices before deciding where and when to sell produce.</p></div></div>
+<div class="tech"><div class="icon">🌱</div><div><h3>Soil Testing</h3><p>Soil testing services help farmers understand soil nutrients and make informed fertilizer decisions.</p></div></div>
+<div class="tech"><div class="icon">📍</div><div><h3>GPS Technology</h3><p>GPS can support field mapping, navigation and more accurate farm planning.</p></div></div>
+<div class="tech"><div class="icon">☁️</div><div><h3>Cloud-Based Records</h3><p>Digital records can help organize crop details, expenses, inputs and harvest information.</p></div></div>
+</div></div></section>
+
+<section class="benefits" id="benefits"><div class="wrap">
+<div class="heading"><h2>Benefits for Rural Communities</h2><p>Digital awareness can help rural communities make informed choices and strengthen agricultural livelihoods.</p></div>
+<div class="benefit-grid">
+<div class="benefit"><h3>🌾 Better Decisions</h3><p>Access to useful information can help farmers plan farm activities with greater confidence.</p></div>
+<div class="benefit"><h3>💦 Resource Conservation</h3><p>Careful water and input management can support more sustainable farming.</p></div>
+<div class="benefit"><h3>📈 Market Awareness</h3><p>Digital market information can help farmers compare prices and understand market trends.</p></div>
+<div class="benefit"><h3>🎓 Digital Literacy</h3><p>Training builds confidence in using smartphones, online services and digital tools.</p></div>
+<div class="benefit"><h3>🌍 Sustainability</h3><p>Appropriate technologies can support soil health, water conservation and climate awareness.</p></div>
+<div class="benefit"><h3>🤝 Community Learning</h3><p>Farmer groups and local training can help people share experiences and learn together.</p></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="heading"><h2>How Can Farmers Get Started?</h2><p>Small, practical steps can make digital agriculture easier to understand and adopt.</p></div>
+<div class="steps">
+<div class="step"><div class="number">1</div><div><h3>Build Basic Digital Skills</h3><p>Learn to use a smartphone, search for information and recognize reliable sources.</p></div></div>
+<div class="step"><div class="number">2</div><div><h3>Explore Trusted Agriculture Services</h3><p>Use official government portals, agricultural universities and extension services.</p></div></div>
+<div class="step"><div class="number">3</div><div><h3>Start with One Useful Tool</h3><p>Try a weather service, market information resource or soil-testing service.</p></div></div>
+<div class="step"><div class="number">4</div><div><h3>Learn and Share</h3><p>Discuss results with agricultural experts and share useful knowledge with other farmers.</p></div></div>
+</div></div></section>
+
+<section class="schemes" id="schemes"><div class="wrap">
+<div class="heading"><h2>Government Schemes & Digital Resources</h2><p>Explore official Indian agriculture resources. Check each portal for current eligibility, services and updates.</p></div>
+<div class="scheme-grid">
+<div class="scheme"><h3>🌐 Digital Agriculture Mission</h3><p>Learn about India's initiatives to develop digital public infrastructure and technology-enabled agricultural services.</p><a href="https://agriwelfare.gov.in/" target="_blank" rel="noopener">Ministry of Agriculture website ↗</a></div>
+<div class="scheme"><h3>👨‍🌾 PM-KISAN</h3><p>Official portal for information about the PM-KISAN scheme, beneficiary services and application-related updates.</p><a href="https://pmkisan.gov.in/" target="_blank" rel="noopener">Visit PM-KISAN ↗</a></div>
+<div class="scheme"><h3>🌱 Soil Health Card</h3><p>Information about soil testing and soil health cards to support informed nutrient management.</p><a href="https://soilhealth.dac.gov.in/" target="_blank" rel="noopener">Visit Soil Health Card portal ↗</a></div>
+<div class="scheme"><h3>📚 e-NAM</h3><p>Explore the National Agriculture Market platform and learn about online agricultural market services.</p><a href="https://www.enam.gov.in/" target="_blank" rel="noopener">Visit e-NAM ↗</a></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="heading"><h2>Smart Farming Awareness Tips</h2><p>Simple practices that can help farmers make better use of information and resources.</p></div>
+<div class="tips-grid">
+<article class="tip"><img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=800&q=80" alt="Young green plants"><div><h3>Know Your Soil</h3><p>Use a soil test where available and follow recommendations suited to your crop and location.</p></div></article>
+<article class="tip"><img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=800&q=80" alt="Water flowing through a green landscape"><div><h3>Use Water Wisely</h3><p>Check soil moisture and local guidance before irrigation. Maintain systems to reduce water loss.</p></div></article>
+<article class="tip"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Agricultural fields"><div><h3>Check Weather Updates</h3><p>Follow trusted local forecasts and plan field activities with changing weather in mind.</p></div></article>
+</div></div></section>
+
+<section class="white" id="quiz"><div class="wrap">
+<div class="heading"><h2>Test Your Smart Farming Knowledge</h2><p>Answer these questions to check what you have learned.</p></div>
+<div class="quiz-box">
+<form id="quizForm">
+<div class="question"><h3>1. What is smart farming?</h3>
+<label><input type="radio" name="q1" value="a"> Farming only with traditional tools</label>
+<label><input type="radio" name="q1" value="b"> Using technology and information to support farming</label>
+<label><input type="radio" name="q1" value="c"> Farming without planning</label></div>
+<div class="question"><h3>2. Which tool can help monitor soil moisture?</h3>
+<label><input type="radio" name="q2" value="a"> Soil-moisture sensor</label>
+<label><input type="radio" name="q2" value="b"> Television remote</label>
+<label><input type="radio" name="q2" value="c"> Speaker</label></div>
+<div class="question"><h3>3. What is one benefit of checking weather forecasts?</h3>
+<label><input type="radio" name="q3" value="a"> It guarantees a high yield</label>
+<label><input type="radio" name="q3" value="b"> It replaces all farm decisions</label>
+<label><input type="radio" name="q3" value="c"> It helps plan farming activities</label></div>
+<div class="question"><h3>4. What is the purpose of soil testing?</h3>
+<label><input type="radio" name="q4" value="a"> To select music for the farm</label>
+<label><input type="radio" name="q4" value="b"> To understand soil properties and nutrients</label>
+<label><input type="radio" name="q4" value="c"> To predict the exact market price</label></div>
+<button class="btn" type="submit">Submit Answers</button>
+<button class="btn" type="reset" style="background:#e8eee4;margin-left:7px">Reset</button>
+</form><p id="quizResult" aria-live="polite"></p>
+</div></div></section>
+
+<section id="contact"><div class="wrap">
+<div class="heading"><h2>Contact & Feedback</h2><p>Share your thoughts, suggestions or questions about digital agriculture awareness.</p></div>
+<div class="contact-grid">
+<div class="contact-info"><h3>🌿 Let's Grow Together</h3><p>This website is an educational Computer Science project designed to spread awareness about digital transformation and smart farming in rural communities.</p><p>📌 <strong>Project:</strong> Digital Transformation and Smart Farming Awareness in Rural Communities</p><p>🎓 <strong>Purpose:</strong> Education and awareness</p><p>💡 <strong>Focus:</strong> Digital literacy, technology and sustainable agriculture</p></div>
+<form class="contact-form" id="contactForm">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<select id="topic" required><option value="">Select a topic</option><option>Smart farming</option><option>Digital literacy</option><option>Government resources</option><option>Project feedback</option></select>
+<textarea id="message" placeholder="Write your message or feedback..." required></textarea>
+<button class="btn" type="submit">Submit Feedback</button>
+<p id="formResult" aria-live="polite"></p>
+</form>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+<h3>🌱 SmartFarm Awareness Project</h3>
+<div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#technology">Technology</a><a href="#contact">Contact</a></div>
+<p>Digital Transformation and Smart Farming Awareness in Rural Communities</p>
+<p>Educational project website | Created using HTML, CSS and JavaScript</p>
+<p style="margin-top:10px">© <span id="year"></span> SmartFarm Project. All rights reserved.</p>
+</div></footer>
+
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{
+  const isOpen=navLinks.classList.toggle('show');
+  menuBtn.setAttribute('aria-expanded',String(isOpen));
+  menuBtn.textContent=isOpen?'✕':'☰';
+});
+document.querySelectorAll('#navLinks a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    navLinks.classList.remove('show');
+    menuBtn.setAttribute('aria-expanded','false');
+    menuBtn.textContent='☰';
+  });
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+
+document.getElementById('quizForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const answers={q1:'b',q2:'a',q3:'c',q4:'b'};
+  let score=0;
+  for(const key in answers){
+    const selected=this.querySelector(`input[name="${key}"]:checked`);
+    if(selected && selected.value===answers[key]) score++;
+  }
+  document.getElementById('quizResult').textContent=`You scored ${score} out of 4. ${score===4?'Excellent work!':score>=2?'Good effort! Keep learning.':'Keep exploring the website and try again!'}`;
+});
+document.getElementById('quizForm').addEventListener('reset',()=>{
+  document.getElementById('quizResult').textContent='';
+});
+
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  document.getElementById('formResult').textContent=`Thank you, ${name}! This demo form is working locally. To receive real messages, connect it to a backend or form service.`;
+  this.reset();
+});
+</script>
+</body>
+</html>
